@@ -7,6 +7,7 @@
 #include <Arduino.h>
 
 int delayTime;
+int brightness;
 
 const int knobPin = 15;
 
@@ -21,9 +22,8 @@ const int trackEight = 20;
 
 void setup()
 {
-Serial.begin(9600); 
-  // pinMode(knobPin, INPUT);      
-
+  Serial.begin(9600); 
+  
   // initialize LED digital pin as an output.
   pinMode(3, OUTPUT);  
   pinMode(4, OUTPUT);
@@ -39,39 +39,42 @@ Serial.begin(9600);
 
 void loop()
 {
-  delayTime = analogRead(knobPin);  // read the input pin
+  delayTime = analogRead(knobPin)/2;  // read the input pin
+  brightness = analogRead(knobPin);  // read the input pin
+  
   Serial.println(delayTime); 
+  Serial.println(brightness);
 
-  digitalWrite(trackOne, HIGH);
-  digitalWrite(trackEight, LOW);
+  analogWrite(trackOne, brightness);
+  analogWrite(trackEight, 0);
   delay(delayTime);
  
-  digitalWrite(trackTwo, HIGH);
-  digitalWrite(trackOne, LOW);
+  analogWrite(trackTwo, brightness);
+  analogWrite(trackOne, 0);
   delay(delayTime);
  
-  digitalWrite(trackThree, HIGH);
-  digitalWrite(trackTwo, LOW);
+  analogWrite(trackThree, brightness);
+  analogWrite(trackTwo, 0);
   delay(delayTime);
 
-  digitalWrite(trackFour, HIGH);
-  digitalWrite(trackThree, LOW);
+  analogWrite(trackFour, brightness);
+  analogWrite(trackThree, 0);
   delay(delayTime);
 
-  digitalWrite(trackFive, HIGH);
-  digitalWrite(trackFour, LOW);
+  analogWrite(trackFive, brightness);
+  analogWrite(trackFour, 0);
   delay(delayTime);
 
-  digitalWrite(trackSix, HIGH);
-  digitalWrite(trackFive, LOW);
+  analogWrite(trackSix, brightness);
+  analogWrite(trackFive, 0);
   delay(delayTime);
 
-  digitalWrite(trackSeven, HIGH);
-  digitalWrite(trackSix, LOW);
+  analogWrite(trackSeven, brightness);
+  analogWrite(trackSix, 0);
   delay(delayTime);
 
-  digitalWrite(trackEight, HIGH);
-  digitalWrite(trackSeven, LOW);
+  analogWrite(trackEight, brightness);
+  analogWrite(trackSeven, 0);
   delay(delayTime);
 
 }
