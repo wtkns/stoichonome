@@ -1,80 +1,55 @@
-/*
- * Blink
- * Turns on an LED on for one second,
- * then off for one second, repeatedly.
- */
+// interrupt timer test
 
 #include <Arduino.h>
 
-int delayTime;
-int brightness;
+// Create an IntervalTimer object 
+IntervalTimer myTimer;
 
-const int knobPin = 15;
+// The interrupt will blink the LED, and keep
+// track of how many times it has blinked.
+int ledState = LOW;
+volatile unsigned long blinkCount = 0; // use volatile for shared variables
 
-const int trackOne = 3;
-const int trackTwo = 4;
-const int trackThree = 5;
-const int trackFour = 6;
-const int trackFive = 23;
-const int trackSix = 22;
-const int trackSeven = 21;
-const int trackEight = 20;
 
-void setup()
-{
-  Serial.begin(9600); 
-  
-  // initialize LED digital pin as an output.
-  pinMode(3, OUTPUT);  
-  pinMode(4, OUTPUT);
-  pinMode(5, OUTPUT);
-  pinMode(6, OUTPUT);
+const int ledPin = LED_BUILTIN;  // the pin with a LED
+// functions called by IntervalTimer should be short, run as quickly as
+// possible, and should avoid calling other functions if possible.
 
-  pinMode(20, OUTPUT);  
-  pinMode(21, OUTPUT);
-  pinMode(22, OUTPUT);
-  pinMode(23, OUTPUT);      
 
+void blinkLED() {
+  if (ledState == LOW) {
+    ledState = HIGH;
+    blinkCount = blinkCount + 1;  // increase when LED turns on
+  } else {
+    ledState = LOW;
+  }
+  digitalWrite(ledPin, ledState);
 }
 
-void loop()
-{
-  delayTime = analogRead(knobPin)/2;  // read the input pin
-  brightness = analogRead(knobPin);  // read the input pin
-  
-  Serial.println(delayTime); 
-  Serial.println(brightness);
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+  myTimer.begin(blinkLED, 150000);  // blinkLED to run every 0.15 seconds
+}
 
-  analogWrite(trackOne, brightness);
-  analogWrite(trackEight, 0);
-  delay(delayTime);
- 
-  analogWrite(trackTwo, brightness);
-  analogWrite(trackOne, 0);
-  delay(delayTime);
- 
-  analogWrite(trackThree, brightness);
-  analogWrite(trackTwo, 0);
-  delay(delayTime);
 
-  analogWrite(trackFour, brightness);
-  analogWrite(trackThree, 0);
-  delay(delayTime);
 
-  analogWrite(trackFive, brightness);
-  analogWrite(trackFour, 0);
-  delay(delayTime);
 
-  analogWrite(trackSix, brightness);
-  analogWrite(trackFive, 0);
-  delay(delayTime);
+// The main program will print the blink count
+// to the Arduino Serial Monitor
+void loop() {
+  unsigned long blinkCopy;  // holds a copy of the blinkCount
 
-  analogWrite(trackSeven, brightness);
-  analogWrite(trackSix, 0);
-  delay(delayTime);
+  // to read a variable which the interrupt code writes, we
+  // must temporarily disable interrupts, to be sure it will
+  // not change while we are reading.  To minimize the time
+  // with interrupts off, just quickly make a copy, and then
+  // use the copy while allowing the interrupt to keep working.
+  noInterrupts();
+  blinkCopy = blinkCount;
+  interrupts();
 
-  analogWrite(trackEight, brightness);
-  analogWrite(trackSeven, 0);
-  delay(delayTime);
-
+  Serial.print("blinkCount = ");
+  Serial.println(blinkCopy);
+  delay(1000);
 }
