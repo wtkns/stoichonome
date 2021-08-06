@@ -104,11 +104,16 @@ Use Cases:
         row 2 is steps 17-32
       in 16-mode, should still retain voice and pattern information for steps 17-32
 
-
   5. modify a voice:
-    a. turn to knob 1 to choose waveform type: sin, square, fm, noise, grain, sample, vosim, kick, pluck, etc. 
+    a. press and hold Voice mode button
+    b. Push knob to select track to edit
+    c. Knob lights to indicate selected track
+    d. Release both knob and button
+    e. programming mode button stays lighted
+    f. each knob now represents one parameter of the voice of the selected track
+    g. turn to knob 1 to choose waveform type: sin, square, fm, noise, grain, sample, vosim, kick, pluck, etc. 
        push & turn for preset or shuffled parameters
-    b. other knobs might change depending on waveform but generically something like:
+    h. other knobs might change depending on waveform but generically something like:
       k2 envelope shape/pitch shape ( staccato portamemto legato rising falling sustain )
       k3 thru k6 adsr 
       k7 low pass
@@ -122,8 +127,23 @@ Use Cases:
       k14 # chord voices 
       k15 detune
       k16 chord delay (arp)
+    i1. push lighted programming mode again to exit (each knob now represents one track) -or- 
+    i2. push a different mode to switch to display/edit a different mode of the same track.
 
-  6. store a patch
-  7. recall a patch
+  6. store a patch (stores up to 256 patches)
+    a. press store button
+    b. store button lights
+    b. led rings light to indicate where patterns are already held. Dark leds are empty
+    c. press knob 
+    d. next empty space will blink.
+    e. turn knob to select space
+    f. press knob 
+    g. LED will pulse colors.
+    h. turn knob to select color
+    i. press knob and "store" light will turn off
+    j. LED rings are now back in Patch mode
+
+8. recall a patch
+
 
 In "euclidean" home mode, turn knob to increase decrease Euclidean split, or press and turn to bit shift left or right
