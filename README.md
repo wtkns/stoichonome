@@ -1,60 +1,60 @@
-initial tests for sequencing instrument
 
-thoughts:
+# Stoichonome Hardware Sequencing instrument
 
-Form Factor: 3u 84hp, self contained (semi modular, optional rack ears for eurorack), expansion port for additional modules with patching options (CV, Midi) card based storage?
+## Form Factor: 
+**3u 84hp** 
+self contained (semi modular, optional rack ears for eurorack)
+expansion port for additional modules with patching options (CV, Midi)
+sd card based storage
+SCsynth audio generator 
 
-Accessibility: left/right handed, colorblind
+## Basic Interface: 
 
-Basic Interface: 
+### on back:
+ - power port (eurorack power +/- 12v)
+ - USB port for firmware updates
+ - expansion port (for additional IO)
 
-  on back:
-    power port (eurorack power +/- 12v)
-    USB port for firmware updates
-    expansion port 
+### on faceplate
 
-  on faceplate
-    power button
-    3.5mm audio jack 
-    16 encoders
-    16 led rings
-    switch/led for 16/32 
-    left side lighted soft-latching buttons to select "programming" mode: 
-      Voice
-      Rhythm
-      Pitch
-      Velocity
-        or (see expert mode)
-          voice
-          pattern  
-    right side lighted buttons for Patch actions
-      Play/pause
-      Store/Recall ( 1 thru 256. lit contain stored patches )
-      Delete
-      Tempo
-      Scale
-    Track actions
-      Pattern length
-      Shuffle
-      Euclidean
-      Mute
+ - power button
+ - 3.5mm audio jack 
+ - 16 encoders
+ - 16 led rings
+ - switch/led for 16/32 
+#### lighted soft-latching buttons to select "programming" mode: 
+	 - Voice
+	 - Rhythm
+	 - Pitch
+	 - Velocity
+#### lighted buttons for Patch actions
+	 - Play/pause
+	 - Store/Recall
+	 - Delete
+	 - Tempo
+	 - Scale
+#### lighted buttons for Track actions
+	 - Pattern length
+	 - Shuffle
+	 - Euclidean
+	 - Mute
 
-Concepts: 
-  Patch: "song" consisting of 8/16 tracks, tempo, scale (store/recall up to 256 patches)
-    Track: one "instrument" consisting of a voice and pattern
-      Voice: 16 parameters describing how a track sounds
-      Pattern: consisting of 16/32 beats and pattern length 
-        beat: consists of gate, pitch, velocity, accent
-          gate: whether or not the voice triggers on a beat
-          pitch: fundamental frequency of a beat
-          velocity: amplitude of a beat
-          accent: number representing modulation of a beat (interpreted by the voice)
-        pattern length: number of beats to play before looping
-    Tempo: global clock for patch
-    Scale: global set of pitch intervals for patch
+## Concepts: 
+**Patch:** "song" consisting of 8/16 tracks, tempo, scale, can be stored and recalled later 
+**Track:** one "instrument" consisting of a voice and pattern
+**Voice:** 16 parameters describing how a track sounds
+**Pattern:** consisting of 16/32 beats and pattern length 
+**beat:** consists of gate, pitch, velocity, accent
+**gate:** whether or not the voice triggers on a beat
+**pitch:** fundamental frequency of a beat
+**velocity:** amplitude of a beat
+**accent:** number representing modulation of a beat (interpreted by the voice)
+**pattern length:** number of beats to play before looping
+**Tempo:** global clock for patch
+**Scale:** global set of pitch intervals for patch
 
-Use Cases:
-  1. modify rhythm of a track pattern: 
+## Use Cases:
+  **1. modify rhythm of a track pattern:** 
     a. Push and hold rhythm programming button
     b. Push knob to select track to edit
     c. Knob lights to indicate selected track
@@ -68,7 +68,7 @@ Use Cases:
     h1. push lighted programming mode again to exit (each knob now represents one track) -or- 
     h2. push a different mode to switch to display/edit a different mode of the same track.
 
-  2. modify velocity of a track pattern: 
+  **2. modify velocity of a track pattern:** 
     a. Push and hold velocity programming button
     ...
     f. each knob now represents one beat of the selected track
@@ -78,7 +78,7 @@ Use Cases:
     h1. push lighted programming mode again to exit (each knob now represents one track) -or- 
     h2. push a different mode to switch to display/edit a different mode of the same track.
 
-  3. modify pitch of a track pattern: 
+  **3. modify pitch of a track pattern:** 
     a. Push and hold pitch programming button
     ...
     f. each knob now represents one beat of the selected track
@@ -94,7 +94,7 @@ Use Cases:
         push and turn for pitch 
         Maybe use color to differentiate
 
-  4. change patch pattern type:
+  **4. change patch pattern type:**
     a. toggle 16/32 switch:
       16 mode: every knob is a track (16 tracks)
         each track has 16 steps
@@ -104,7 +104,7 @@ Use Cases:
         row 2 is steps 17-32
       in 16-mode, should still retain voice and pattern information for steps 17-32
 
-  5. modify a voice:
+  **5. modify a voice:**
     a. press and hold Voice mode button
     b. Push knob to select track to edit
     c. Knob lights to indicate selected track
@@ -130,7 +130,7 @@ Use Cases:
     i1. push lighted programming mode again to exit (each knob now represents one track) -or- 
     i2. push a different mode to switch to display/edit a different mode of the same track.
 
-  6. store a patch (stores up to 256 patches)
+  **6. store a patch (stores up to 256 patches)**
     a. press store button
     b. store button lights
     b. led rings light to indicate where patterns are already held. Dark leds are empty
@@ -143,7 +143,15 @@ Use Cases:
     i. press knob and "store" light will turn off
     j. LED rings are now back in Patch mode
 
-8. recall a patch
+**7. recall a patch**
 
+
+
+## Accessibility: 
+left/right handed, colorblind
+
+---
+notes:
 
 In "euclidean" home mode, turn knob to increase decrease Euclidean split, or press and turn to bit shift left or right
+
