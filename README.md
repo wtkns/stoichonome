@@ -1,4 +1,5 @@
 
+
 # Stoichonome Hardware Sequencing instrument
 
 ## Form Factor: 
@@ -55,19 +56,19 @@ SCsynth audio generator
  12. **Scale:** global set of pitch intervals for patch
 
 ## Use Cases:
-  **1. modify rhythm of a track pattern:** 
-    a. Push and hold rhythm programming button
-    b. Push knob to select track to edit
-    c. Knob lights to indicate selected track
-    d. Release both knob and button
-    e. programming mode button stays lighted
-    f. each knob now represents one beat of the selected track
-    g. adjust parameters:
-      push knob to toggle gate
-      turn knob to adjust accent
-      push and turn to adjust randomness
-    h1. push lighted programming mode again to exit (each knob now represents one track) -or- 
-    h2. push a different mode to switch to display/edit a different mode of the same track.
+**1. modify rhythm of a track pattern:** 
+
+ - Push and hold rhythm programming button 
+ - Push knob to select track to edit
+ - Knob lights to indicate selected track
+ - Release both knob and button
+ - programming mode button stays lighted
+ - each knob now represents one beat of the selected track adjust parameters: 
+	 - push knob to toggle gate 
+	 - turn knob to adjust accent 
+	 - push and turn to adjust randomness
+ - push lighted programming mode again to exit (each knob now represents one track)
+ - *or* push a different mode to switch to display/edit a different mode of the same track.
 
   **2. modify velocity of a track pattern:** 
     a. Push and hold velocity programming button
@@ -155,4 +156,5 @@ left/right handed, colorblind
 notes:
 
 In "euclidean" home mode, turn knob to increase decrease Euclidean split, or press and turn to bit shift left or right
+
 
