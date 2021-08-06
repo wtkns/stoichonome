@@ -40,18 +40,19 @@ SCsynth audio generator
 	 - Mute
 
 ## Concepts: 
-**Patch:** "song" consisting of 8/16 tracks, tempo, scale, can be stored and recalled later 
-**Track:** one "instrument" consisting of a voice and pattern
-**Voice:** 16 parameters describing how a track sounds
-**Pattern:** consisting of 16/32 beats and pattern length 
-**beat:** consists of gate, pitch, velocity, accent
-**gate:** whether or not the voice triggers on a beat
-**pitch:** fundamental frequency of a beat
-**velocity:** amplitude of a beat
-**accent:** number representing modulation of a beat (interpreted by the voice)
-**pattern length:** number of beats to play before looping
-**Tempo:** global clock for patch
-**Scale:** global set of pitch intervals for patch
+
+ 1. **Patch:** "song" consisting of 8/16 tracks, tempo, scale, can be stored and recalled later 
+ 2. **Track:** one "instrument" consisting of a voice and pattern
+ 3. **Voice:** 16 parameters describing how a track sounds
+ 4. **Pattern:** consisting of 16/32 beats and pattern length 
+ 5. **beat:** consists of gate, pitch, velocity, accent
+ 6. **gate:** whether or not the voice triggers on a beat
+ 7. **pitch:** fundamental frequency of a beat
+ 8. **velocity:** amplitude of a beat
+ 9. **accent:** number representing modulation of a beat (interpreted by the voice)
+ 10. **pattern length:** number of beats to play before looping
+ 11. **Tempo:** global clock for patch
+ 12. **Scale:** global set of pitch intervals for patch
 
 ## Use Cases:
   **1. modify rhythm of a track pattern:** 
