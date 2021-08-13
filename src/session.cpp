@@ -6,12 +6,20 @@ using namespace Stoichonome;
 
 void Session::initialize()
 {
+    int id {100};
     bool playing {false};
     Serial.println("Initializing");
 }
 
-void Session::patch()
+void Session::play()
 {
     playing = true;
-    Serial.println("updating patch");
+    Serial.println("playing patch.");
+}
+
+void Session::status()
+{
+    Serial.println("id");
+    Serial.println("playing");
+
 }
