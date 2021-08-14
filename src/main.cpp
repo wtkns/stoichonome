@@ -4,6 +4,10 @@
  
 using namespace Stoichonome;
 
+// Static definitions
+int Session::patchID; 
+bool Session::playing;
+
 Session session;
 
 void setup()
@@ -17,9 +21,14 @@ void setup()
 
 void loop()
 {  
+  delay(1000);
   session.status();
-
-  digitalWrite(LED_BUILTIN, HIGH);
   delay(1000);
   digitalWrite(LED_BUILTIN, LOW);
+  session.play();
+  session.status();
+  delay(1000);
+  session.stop();
+  session.status();
+
 }

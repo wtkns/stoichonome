@@ -4,13 +4,16 @@ namespace Stoichonome
     class Session
     {
     public:
-        int id();
-        bool playing;
-        // void load();
+        static int patchID;
+        static bool playing;
         void initialize();
         void play();
+        void stop();
         void status();
-        // void store();
+        // void loadPatch();
+        // void storePatch();
+        // int setLastPatchID();
+        // int getLastPatchID();
     };
 
 }
