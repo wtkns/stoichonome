@@ -7,10 +7,10 @@ namespace Stoichonome
     private:
         static int patchID;
         static bool playing;
+        static int randSeed;
 
         static void LoadPatch(int);
-        // void storePatch();
-        // int setLastPatchID();
+        static void SetLastPatchID(int);
         static int GetLastPatchID();
 
     public:
@@ -19,6 +19,7 @@ namespace Stoichonome
         static void Play();
         static void Stop();
         static void PrintStatus();
+        static void StorePatch();
     };
 
 }
