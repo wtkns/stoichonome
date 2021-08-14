@@ -4,7 +4,12 @@
 
 using namespace Stoichonome;
 
-void Session::initialize()
+// Static definitions
+int Session::patchID {0}; 
+bool Session::playing {false};
+
+
+void Session::Initialize()
 {
     //loadPatch(getLastPatchID())
     patchID = 100;
@@ -12,19 +17,19 @@ void Session::initialize()
     Serial.println("Initializing");
 }
 
-void Session::play()
+void Session::Play()
 {
     Session::playing = true;
     Serial.println("playing patch.");
 }
 
-void Session::stop()
+void Session::Stop()
 {
     Session::playing = false;
     Serial.println("stopping patch.");
 }
 
-void Session::status()
+void Session::Status()
 {
     Serial.println(patchID);
     Serial.println(playing);

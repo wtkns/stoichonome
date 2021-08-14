@@ -4,16 +4,10 @@
  
 using namespace Stoichonome;
 
-// Static definitions
-int Session::patchID; 
-bool Session::playing;
-
-Session session;
-
 void setup()
 {
-  session.initialize();
-  session.status();
+  Session::Initialize();
+  Session::Status();
 
   // initialize LED digital pin as an output.
   pinMode(LED_BUILTIN, OUTPUT);
@@ -22,13 +16,12 @@ void setup()
 void loop()
 {  
   delay(1000);
-  session.status();
+  Session::Status();
   delay(1000);
   digitalWrite(LED_BUILTIN, LOW);
-  session.play();
-  session.status();
+  Session::Play();
+  Session::Status();
   delay(1000);
-  session.stop();
-  session.status();
-
+  Session::Stop();
+  Session::Status();
 }
