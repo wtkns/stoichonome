@@ -11,10 +11,9 @@ bool Session::playing {false};
 
 void Session::Initialize()
 {
-    //loadPatch(getLastPatchID())
-    patchID = 100;
+    Session::LoadPatch(Session::GetLastPatchID());
     playing = false;
-    Serial.println("Initializing");
+
 }
 
 void Session::Play()
@@ -29,9 +28,19 @@ void Session::Stop()
     Serial.println("stopping patch.");
 }
 
-void Session::Status()
+void Session::PrintStatus()
 {
     Serial.println(patchID);
     Serial.println(playing);
-    digitalWrite(LED_BUILTIN, HIGH);
+}
+
+void Session::LoadPatch(int p)
+{
+    patchID = p;
+
+}
+
+int Session::GetLastPatchID()
+{
+    return 100;
 }

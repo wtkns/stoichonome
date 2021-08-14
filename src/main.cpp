@@ -6,22 +6,21 @@ using namespace Stoichonome;
 
 void setup()
 {
+  
   Session::Initialize();
-  Session::Status();
+  
+  Session::PrintStatus();
 
-  // initialize LED digital pin as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop()
 {  
   delay(1000);
-  Session::Status();
+  Session::PrintStatus();
   delay(1000);
-  digitalWrite(LED_BUILTIN, LOW);
   Session::Play();
-  Session::Status();
+  Session::PrintStatus();
   delay(1000);
   Session::Stop();
-  Session::Status();
+  Session::PrintStatus();
 }

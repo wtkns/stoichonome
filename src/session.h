@@ -8,17 +8,17 @@ namespace Stoichonome
         static int patchID;
         static bool playing;
 
-        // void loadPatch();
+        static void LoadPatch(int);
         // void storePatch();
         // int setLastPatchID();
-        // int getLastPatchID();
+        static int GetLastPatchID();
 
     public:
 
         static void Initialize();
         static void Play();
         static void Stop();
-        static void Status();
+        static void PrintStatus();
     };
 
 }
