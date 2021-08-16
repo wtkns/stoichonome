@@ -23,17 +23,20 @@ SCsynth audio generator
  - 16 encoders
  - 16 led rings
  - switch/led for 16/32 
+
 #### lighted soft-latching buttons to select "programming" mode: 
 	 - Voice
 	 - Rhythm
 	 - Pitch
 	 - Velocity
+
 #### lighted buttons for Patch actions
 	 - Play/pause
 	 - Store/Recall
 	 - Delete
 	 - Tempo
 	 - Scale
+
 #### lighted buttons for Track actions
 	 - Pattern length
 	 - Shuffle
@@ -55,6 +58,36 @@ SCsynth audio generator
  11. **Tempo:** global clock for patch
  12. **Scale:** global set of pitch intervals for patch
 
+
+
+## Storage: 
+
+with built in EEPROM, can store 4 (512 Byte) Patches with 8 Tracks each.
+
+### Patch: 8 tracks
+**Storage Format:**
+
+| Byte #  | Value   |    | Stores  | Notes  |
+|---|---|---|---|---|
+| 1 | Track mute   |   | 8 One bit values  | Track 1-8 mute  |
+| 2-9  | Pan   |   | 8 8-bit values  | +/- 64 Left/Right  |
+
+
+
+
+### Track 
+**Storage Format:**
+  
+| Byte #  | Value   |    | Stores  | Notes  |
+|---|---|---|---|---|
+| 1-16 | Voice   |   | 16 8-bit values  |   |
+| 17-32  | Velocity   |   | 16 8-bit values  |   |
+| 33-64  | Pitch  |   | 16 16-bit values (7.9)  | 7 bits ( +/- 64 Semitones ) |
+|  |  |   |   | 9 bits ( 1-512 bend-up ) |
+
+
+
+
 ## Use Cases:
 **1. modify rhythm of a track pattern:** 
 
@@ -71,6 +104,7 @@ SCsynth audio generator
  - *or* push a different mode to switch to display/edit a different mode of the same track.
 
   **2. modify velocity of a track pattern:** 
+    
     a. Push and hold velocity programming button
     ...
     f. each knob now represents one beat of the selected track
@@ -80,7 +114,8 @@ SCsynth audio generator
     h1. push lighted programming mode again to exit (each knob now represents one track) -or- 
     h2. push a different mode to switch to display/edit a different mode of the same track.
 
-  **3. modify pitch of a track pattern:** 
+  **3. modify pitch of a track pattern:**
+
     a. Push and hold pitch programming button
     ...
     f. each knob now represents one beat of the selected track
@@ -91,12 +126,14 @@ SCsynth audio generator
     h2. push a different mode to switch to display/edit a different mode of the same track.
 
    *or: expert pattern programming mode
-        Push to toggle gate
-        turn for velocity
-        push and turn for pitch 
-        Maybe use color to differentiate
+
+    Push to toggle gate
+    Turn for velocity
+    Push and turn for pitch 
+    Maybe use color to differentiate
 
   **4. change patch pattern type:**
+
     a. toggle 16/32 switch:
       16 mode: every knob is a track (16 tracks)
         each track has 16 steps
@@ -107,6 +144,7 @@ SCsynth audio generator
       in 16-mode, should still retain voice and pattern information for steps 17-32
 
   **5. modify a voice:**
+
     a. press and hold Voice mode button
     b. Push knob to select track to edit
     c. Knob lights to indicate selected track
@@ -133,6 +171,7 @@ SCsynth audio generator
     i2. push a different mode to switch to display/edit a different mode of the same track.
 
   **6. store a patch (stores up to 256 patches)**
+
     a. press store button
     b. store button lights
     b. led rings light to indicate where patterns are already held. Dark leds are empty
